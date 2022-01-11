@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Dimensions } from "react-native";
+import { Text, View, StyleSheet, Dimensions, Pressable } from "react-native";
 import Carousel from "react-native-snap-carousel"; // 3.4.0
 
 /*
@@ -32,17 +32,19 @@ export default class CarouselScreen extends Component {
 
   _renderItem({ item }) {
     return (
-      <View
-        style={{
-          width: ItemWidth,
-          height: ItemHeight,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "purple",
-        }}
-      >
-        <Text style={{ color: "white", fontSize: 40 }}>{item}</Text>
-      </View>
+      <Pressable onPress={() => console.log(item)}>
+        <View
+          style={{
+            width: ItemWidth,
+            height: ItemHeight,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "purple",
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 40 }}>{item}</Text>
+        </View>
+      </Pressable>
     );
   }
 
@@ -50,11 +52,13 @@ export default class CarouselScreen extends Component {
     return (
       <View style={styles.container}>
         <Carousel
+          layout={"stack"}
+          layoutCardOffset={`18`}
           data={Items}
           firstItem={FirstItem}
           itemWidth={ItemWidth}
           sliderWidth={SliderWidth}
-          activeSlideAlignment="center"
+          activeSlideAlignment="end"
           renderItem={this._renderItem}
         />
       </View>
