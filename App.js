@@ -1,13 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import CarouselScreen from "./src/screen/CarouselScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Test on github</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <CarouselScreen />;
 }
 
 const styles = StyleSheet.create({
